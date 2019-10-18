@@ -12,7 +12,7 @@ router.post('/register', (req, res) => {
 
   Users.add(user)
       .then(saveU => {
-          console.log('Save /register: ', saveU)
+          console.log('SAVEU /register: ', saveU)
           res.status(201).json(saveU)
       })
       .catch(error => {
