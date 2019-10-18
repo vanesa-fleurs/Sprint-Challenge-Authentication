@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const restricted = require('./authenticate-middleware.js'); //?
+// const restricted = require('./authenticate-middleware.js'); //?
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
