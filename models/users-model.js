@@ -1,4 +1,5 @@
-const db = require('../knexfile.js')
+const db = require('../database/dbConfig.js')
+
 module.exports = {
     getAll,
     add,
@@ -8,7 +9,7 @@ module.exports = {
 
 function getAll(){
     return db('users')
-        .select('id', 'username')
+        .select('id', 'username', 'department')
 }
 
 async function add(user) {

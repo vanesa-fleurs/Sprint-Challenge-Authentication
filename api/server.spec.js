@@ -3,6 +3,10 @@ const server = require('./server.js')
 const db = require('../database/dbConfig.js')
 
 describe('auth-router', () => {
+    beforeEach(async () => {
+        await db('users').truncate()
+    })
+
     describe('POST /api/auth/register', () => {
         it('should return status 201', async () => {
             const post = {
@@ -24,4 +28,7 @@ describe('auth-router', () => {
             expect(response.type).toBe('application/json') 
         })
     })
+
+
+    
 })
