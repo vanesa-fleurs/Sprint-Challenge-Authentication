@@ -30,5 +30,48 @@ describe('auth-router', () => {
     })
 
 
+
     
+    describe('POST api/auth/login', () => {
+        it('should return status 200 if successful', async () => {
+          const post = {
+              username: 'Ash',
+              password: 'pass'
+          }
+  
+          await request(server).post('/api/auth/register').send(post)
+  
+          const response = await request(server).post('/api/auth/login').send(post)
+          expect(response.status).toBe(200) 
+        })
+  
+        it('should return a token if successful', async () => {
+          const post = {
+              username: 'Ash',
+              password: 'pass'
+          }
+  
+  
+          await request(server).post('/api/auth/register').send(post)
+  
+          const response = await request(server).post('/api/auth/login').send(post)
+          expect(response.body.token).toBeDefined() 
+         
+        })
+  
+        it('should greet client if successful', async () => {
+          const post = {
+              username: 'Ash',
+              password: 'pass'
+          }
+  
+  
+          await request(server).post('/api/auth/register').send(post)
+  
+          const response = await request(server).post('/api/auth/login').send(post)
+          expect(response.body.message).toBe('Welcome Ash!')
+        })
+      })
+
+
 })
