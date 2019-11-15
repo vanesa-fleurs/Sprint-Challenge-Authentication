@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
       });
   }
   else{
-      res.status(400).json({ message: 'You don not have a TOKEN' });
+      res.status(400).json({ message: 'You do not have a TOKEN' });
   }
 
 };
